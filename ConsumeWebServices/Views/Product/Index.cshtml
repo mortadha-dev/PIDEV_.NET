@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ConsumeWebServices.Models.Product>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of products</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameProduct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.priceProduct)
+        </th>
+  
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameProduct)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.priceProduct)
+            </td>
+           
+
+            <td>
+   <a href="@Url.Action("AffecterProductToBasket", "Product", new { id = item.id})" class="btn btn-success"><i class="fa fa-pencil"></i>Ajouter Au panier</a>
+
+            
+                @Html.ActionLink("Details", "ProductDetails", new { id = item.id }) 
+
+            </td>
+        </tr>
+    }
+
+</table>
+
