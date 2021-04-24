@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<!Doctype html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+
+</head>
+
+<body>
+
+    <a href="@Url.Action("Create","Personne")">ajouter un nouveau personne </a>
+
+    
+
+    <table cellpadding="2" cellspacing="2" border="1">
+        <tr>
+
+            <th>id</th>
+            <th>nom</th>
+            <th>prenom</th>
+            <th>cin</th>
+
+
+
+        </tr>
+
+        @foreach (var p in ViewBag.result)
+        {
+
+    <tr>
+
+        <td>@p.id</td>
+        <td>@p.nom</td>
+        <td>@p.prenom</td>
+        <td>@p.cin</td>
+        <td>
+            @{ int id = @p.id;}
+            <a href="@Url.Action("Delete", "Personne",new {id=@p.id})" class="btn btn-danger">Delete</a>
+        </td>
+
+        <td>
+        
+            <a href="@Url.Action("Edit", "Personne")" class="btn btn-danger">Edit</a>
+        </td>
+
+    </tr>
+        }
+
+    </table>
+
+</body>
+</html>
+
+
