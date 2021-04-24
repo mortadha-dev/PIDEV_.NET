@@ -19,6 +19,10 @@
                 <th>
                     @Html.DisplayNameFor(model => model.nameBasket)
                 </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.id)
+                </th>
                 <th>Actions</th>
                 <th>blaaa</th>
             </tr>
@@ -26,20 +30,23 @@
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.nameBasket)
-                </td>
-                <td>
-                    <a href="@Url.Action("AddOrEdit", "Basket", new { id = item.id})" class="btn btn-info"><i class="fa fa-pencil"></i>  Edit</a>
-                    <a onclick="Delete(@item.id)" class="btn btn-default"><i class="btn btn-danger"></i>  Delete</a>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nameBasket)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id)
+        </td>
+        <td>
+            <a href="@Url.Action("AddOrEdit", "Basket", new { id = item.id})" class="btn btn-info"><i class="fa fa-pencil"></i>  Edit</a>
+            <a onclick="Delete(@item.id)" class="btn btn-default"><i class="btn btn-danger"></i>  Delete</a>
 
-                </td>
-                <td>
-                    <a href="@Url.Action("Index", "Product", new { id = item.id})" class="btn btn-success"><i class="fa fa-pencil"></i>pass a command</a>
+        </td>
+        <td>
+            <a href="@Url.Action("Index", "Product", new { id = item.id})" class="btn btn-success"><i class="fa fa-pencil"></i>pass a command</a>
 
-                </td>
-            </tr>
+        </td>
+    </tr>
         }
 
     </table>

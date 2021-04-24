@@ -1,9 +1,7 @@
 ﻿using ConsumeWebServices.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ConsumeWebServices.Controllers
@@ -58,7 +56,7 @@ namespace ConsumeWebServices.Controllers
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:8085");
             client.PutAsJsonAsync<User>("pidev/customers/updateclient/14", c).ContinueWith((postTask) => postTask.Result.EnsureSuccessStatusCode());
-            return RedirectToAction("Create" , "Payment");
+            return RedirectToAction("Create", "Payment");
         }
 
 

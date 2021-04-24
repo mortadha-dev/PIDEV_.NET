@@ -18,33 +18,40 @@
         <th>
             @Html.DisplayNameFor(model => model.priceProduct)
         </th>
-  
+
         <th></th>
     </tr>
+   
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameProduct)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.priceProduct)
+                </td>
 
-    @foreach (var item in Model)
+
+                <td>
+                    <a href="@Url.Action("AffecterProductToBasket", "Product", new { id = item.id})" class="btn btn-success"><i class="fa fa-pencil"></i>Ajouter Au panier</a>
+
+
+                    @Html.ActionLink("Details", "ProductDetails", new { id = item.id })
+
+                </td>
+            </tr>
+        }
+
+    </table>
+<div class="card-body">
+    @if (Session["FullName"] != null)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Code)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NameProduct)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.priceProduct)
-            </td>
-           
+        <p>user_id: @Session["FullName"]</p>
 
-            <td>
-   <a href="@Url.Action("AffecterProductToBasket", "Product", new { id = item.id})" class="btn btn-success"><i class="fa fa-pencil"></i>Ajouter Au panier</a>
 
-            
-                @Html.ActionLink("Details", "ProductDetails", new { id = item.id }) 
-
-            </td>
-        </tr>
     }
-
-</table>
-
+</div>

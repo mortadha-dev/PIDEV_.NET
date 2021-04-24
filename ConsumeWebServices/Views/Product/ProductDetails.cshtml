@@ -64,3 +64,9 @@
 
 </table>
 <a href="@Url.Action("Index", "Product")" class="btn btn-success"><i class="fa fa-pencil"></i>Retour a la liste</a>
+@if (Session["FullName"] != null)
+{
+    <p>user_id: @Session["FullName"].ToString()</p>
+
+
+}

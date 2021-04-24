@@ -1,16 +1,9 @@
 ﻿using ConsumeWebServices.Models;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Web;
-using System.Web.Http;
 using System.Web.Mvc;
-using System.Web.Security;
-using System.Web.Services.Description;
 
 namespace ConsumeWebServices.Controllers
 {
@@ -18,8 +11,10 @@ namespace ConsumeWebServices.Controllers
     {
 
         // GET: Product
-        public ActionResult Index()
+        public ActionResult Index(Basket p)
         {
+            Session["FullName"] = p.id.ToString();
+
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:8085");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -63,28 +58,29 @@ namespace ConsumeWebServices.Controllers
 
 
 
-
-
-
+     
 
 
         [System.Web.Http.HttpPost]
-        public ActionResult AffecterProductToBasket()
+        public ActionResult AffecterProductToBasket(Product p)
         {
-          var basketid = 16;
-          var productid = 5;
+            var productid= p.id;
+            //var basketid = 16;
+            //var productid = 5;
+          //  Basket b = new Basket();
+           var basketid = Session["FullName"];
 
             HttpClient client = new HttpClient();
 
             client.BaseAddress = new Uri("http://localhost:8085");
 
-    client.PostAsync("pidev/basket/affecter/"+ basketid + "/" + productid, null).ContinueWith((postTask) => postTask.Result.EnsureSuccessStatusCode());
+            client.PostAsync("pidev/basket/affecter/" + basketid + "/" + productid, null).ContinueWith((postTask) => postTask.Result.EnsureSuccessStatusCode());
 
             return View("AffecterProductToBasket");
 
 
         }
     }
-        }
+}
 
-    
+
