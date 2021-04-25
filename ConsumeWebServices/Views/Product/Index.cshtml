@@ -50,8 +50,19 @@
 <div class="card-body">
     @if (Session["FullName"] != null)
     {
-        <p>user_id: @Session["FullName"]</p>
+        <p>this is user id: @Session["FullName"]</p>
 
 
     }
+    @if (Session["homsName"] != null)
+    {
+        <p>this is basket id : @Session["homsName"]</p>
+
+
+    }
+
+
+
+
+    
 </div>

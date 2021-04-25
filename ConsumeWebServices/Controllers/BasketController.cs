@@ -21,7 +21,7 @@ namespace ConsumeWebServices.Controllers
                 return View(new Basket());
             else
             {
-                Session["FullName"]= id.ToString();
+                
                 HttpResponseMessage response = GlobalVariables.WebApiClient.GetAsync("modifyName/" + id.ToString()).Result;
                 return View(response.Content.ReadAsAsync<Basket>().Result);
             }
