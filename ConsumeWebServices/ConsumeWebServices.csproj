@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
+=======
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+>>>>>>> 034e99bb862299a454d2ccf7413371f367e6571f
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -132,7 +138,11 @@
     <Compile Include="Controllers\CommandController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\RegisterController.cs" />
+=======
+    <Compile Include="Controllers\LoginController.cs" />
+>>>>>>> 034e99bb862299a454d2ccf7413371f367e6571f
     <Compile Include="Controllers\LoyaltycardController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -358,7 +368,10 @@
     <Content Include="Views\Basket\Edit.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\ProductDetails.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Product\AffecterProductToBasket.cshtml" />
+=======
+>>>>>>> 034e99bb862299a454d2ccf7413371f367e6571f
     <Content Include="Views\Basket\Index.cshtml" />
     <Content Include="Views\Basket\AddOrEdit.cshtml" />
     <Content Include="Views\Customers\Create.cshtml" />
@@ -369,12 +382,22 @@
     <Content Include="Views\Client\ClientVue.cshtml" />
     <Content Include="Views\Shared\_ClientLayout.cshtml" />
     <Content Include="Views\Shared\_Login.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Register\Register.cshtml" />
+=======
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\Product\GetBasketProducts.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+>>>>>>> 034e99bb862299a454d2ccf7413371f367e6571f
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Command\" />
+<<<<<<< HEAD
     <Folder Include="Views\Login\" />
+=======
+>>>>>>> 034e99bb862299a454d2ccf7413371f367e6571f
     <Folder Include="Views\Loyaltycard\" />
   </ItemGroup>
   <ItemGroup>
