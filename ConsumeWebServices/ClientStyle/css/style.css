@@ -361,6 +361,16 @@ button.w3view-cart {
     font-size: 24px;
     color: #fff;
 }
+
+a.w3view-cart {
+    outline: none;
+    border: none;
+    background: #FF5722;
+    width: 48px;
+    height: 43px;
+    font-size: 24px;
+    color: #fff;
+}
 /*-- //cart details--*/
 /*-- //header-bottom --*/
 /*-- banner --*/
@@ -4496,6 +4506,11 @@ input[type="radio"], input[type="checkbox"] {
         margin-top: 10px;
     }
     button.w3view-cart {
+        width: 41px;
+        height: 36px;
+        font-size: 21px;
+    }
+    a.w3view-cart {
         width: 41px;
         height: 36px;
         font-size: 21px;

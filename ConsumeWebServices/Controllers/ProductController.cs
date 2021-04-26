@@ -75,7 +75,8 @@ namespace ConsumeWebServices.Controllers
 
             client.PostAsync("pidev/basket/affecter/" + basketid + "/" + productid, null).ContinueWith((postTask) => postTask.Result.EnsureSuccessStatusCode());
 
-            return RedirectToAction("GetBasketProducts", "Product");
+            TempData["SuccessMessage"] = "Product is Saved Successfully in your Basket";
+            return RedirectToAction("ClientVue", "Client");
 
 
         }
@@ -83,11 +84,13 @@ namespace ConsumeWebServices.Controllers
 
         public ActionResult GetBasketProducts()
         {
+                        var basketid = Session["basketid"]; 
+
 
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:8085");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = client.GetAsync("pidev/products/showproducts").Result;
+            HttpResponseMessage response = client.GetAsync("pidev/basket/show/"+basketid).Result;
             if (response.IsSuccessStatusCode)
             {
                 var products = response.Content.ReadAsAsync<IEnumerable<Product>>().Result;

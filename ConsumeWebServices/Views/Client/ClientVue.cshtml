@@ -36,8 +36,7 @@
                                 <input type="hidden" name="item_name" value=" @Html.DisplayFor(modelItem => item.Description)" />
                                 <input type="hidden" name="amount" value="@Html.DisplayFor(modelItem => item.priceProduct)" />
                             </fieldset>
-                            <input type="submit" value="Add to card" class="button" />
-           <a href="@Url.Action("AffecterProductToBasket", "Product", new { id = item.id})" class="btn btn-info"><i class="fa fa-pencil"></i>  Edit</a>
+                            <a href="@Url.Action("AffecterProductToBasket", "Product", new { id = item.id})" class="btn btn-info"><i class="fa fa-pencil"></i> Add to Card</a>
 
                         </form>
                     </div>
@@ -47,3 +46,24 @@
         </div>
     }
 }
+
+@section scripts{
+    <script>
+        $(function () {
+            var successMessage = '@TempData["SuccessMessage"]'
+            if (successMessage != '')
+                alertify.confirm(successMessage);
+        });
+    </script>
+}
+
+
+@section mortadhacard{
+
+
+     <a href="@Url.Action("GetBasketProducts", "Product")" >
+        <span class="fa fa-cart-arrow-down" aria-hidden="true"></span> check Basket
+        </a>
+
+}
+    }
