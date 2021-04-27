@@ -1,0 +1,60 @@
+﻿
+@model IEnumerable<finalPidev.Models.Topic>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Get All Topics</h2>
+
+<p>
+    <a href="@Url.Action("Create","Topic")" class="btn btn-primary"><i class="fa fa-plus"></i> Create New</a>
+
+</p>
+<table class="table">
+    <thead class="table-heading">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.creationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.numberViews)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.creationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numberViews)
+            </td>
+
+            <td>
+                <a href="@Url.Action("Create", "Topic", new { id = item.idTopic })" class="btn btn-warning"><i class="fa fa-pencil fa-fw"></i>  Edit</a>
+                <a href="@Url.Action("Details", "Topic", new { id = item.idTopic })" class="btn btn-success"><i class="fa fa-eye"></i>  Détails</a>
+                @{ int id = @item.idTopic;}
+                <a href="@Url.Action("Delete", "Topic",new {id=@item.idTopic})" class="btn btn-danger"><i class="fa fa-trash-o"></i>Delete</a>
+                
+            </td>
+        </tr>
+    }
+
+</table>

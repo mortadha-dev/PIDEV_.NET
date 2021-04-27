@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <title>Welcome</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="~/ClientStyle/login_register/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cont">
+        <div class="form sign-in">
+            @RenderSection("something", required: false)
+
+            
+        </div>
+
+        <div class="sub-cont">
+            <div class="img">
+                <div class="img-text m-up">
+                    <h2>Consommi Tounsi #619</h2>
+                    <p>Sign up and discover 100% Tunisian Products !</p>
+                </div>
+                <div class="img-text m-in">
+                    <h2>One of us?</h2>
+                    <p>If you already has an account, just sign in. We've missed you!</p>
+                </div>
+                <div class="img-btn">
+                   
+                    <span class="m-up">Sign Up</span>
+                    <span class="m-in">Sign In</span>
+                   
+                </div>
+            </div>
+            <div class="form sign-up">
+                @RenderBody()
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="~/ClientStyle/login_register/script.js"></script>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+</body>
+</html>
+
+

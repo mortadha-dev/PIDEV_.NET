@@ -1,0 +1,42 @@
+﻿@model finalPidev.Models.Topic
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Create</h2>
+
+<div class="form-body">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.idTopic)
+        @Html.HiddenFor(model => model.idUser)
+        <div class="form-group">
+            @Html.LabelFor(model => model.title)
+            @Html.EditorFor(model => model.title)
+            @Html.ValidationMessageFor(model => model.title)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.content)
+            @Html.EditorFor(model => model.content)
+            @Html.ValidationMessageFor(model => model.content)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.creationDate)
+            @Html.EditorFor(model => model.creationDate)
+            @Html.ValidationMessageFor(model => model.creationDate)
+        </div>
+        
+
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn button" />
+            <input type="reset" value="Reset" class="btn button" />
+        </div>
+    }
+</div>
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval");
+}

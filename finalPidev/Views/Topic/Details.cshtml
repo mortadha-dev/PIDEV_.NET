@@ -1,0 +1,63 @@
+﻿@model finalPidev.Models.Topic
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Topics</h4>
+    <hr />
+    <table class="table">
+        <thead class="table-heading">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.content)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.creationDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.numberViews)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.userId.login)
+                </th>
+            </tr>
+        </thead>
+        <tr>
+
+            <td>
+                @Html.DisplayFor(model => model.title)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.content)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.creationDate)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.numberViews)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.userId.login)
+            </td>
+        </tr>
+    </table>
+</div>
+<p>
+    <a href="@Url.Action("Index", "RatingTopic", new { id = Model.idTopic })" class="btn btn-warning"> Rating</a>
+    <a href="@Url.Action("Comment", "Topic", new { id = Model.idTopic })" class="btn btn-success"> Comments</a>
+    
+    <a href="@Url.Action("Index", "Topic")" class="btn btn-primary"> Back to List</a>
+    
+</p>

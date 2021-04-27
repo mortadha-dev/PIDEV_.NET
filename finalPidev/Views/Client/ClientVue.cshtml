@@ -1,0 +1,52 @@
+﻿﻿@model IEnumerable<finalPidev.Models.Product>
+@{
+    ViewBag.Title = "ClientVue";
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
+}
+
+
+<h2>ClientVue</h2>
+
+
+
+@section testprod {
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 product-men">
+            <div class="men-pro-item simpleCart_shelfItem">
+                <div class="men-thumb-item">
+                    <img src="~/ClientStyle/images/m2.jpg" alt="">
+                    <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                            <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                    </div>
+                    <span class="product-new-top">New</span>
+
+                </div>
+                <div class="item-info-product ">
+                    <h4>
+                        <a href="single.html"> @Html.DisplayFor(modelItem => item.Description)</a>
+                    </h4>
+                    <div class="info-product-price">
+                        <span class="item_price"> @Html.DisplayFor(modelItem => item.priceProduct) TND</span>
+                        <del>promotion</del>
+                    </div>
+                    <div class="A">
+                        <form action="#" method="post">
+                            <fieldset>
+                                <input type="hidden" name="item_name" value=" @Html.DisplayFor(modelItem => item.Description)" />
+                                <input type="hidden" name="amount" value="@Html.DisplayFor(modelItem => item.priceProduct)" />
+                            </fieldset>
+                            <input type="submit" value="Add to card" class="button" />
+                            <a href="@Url.Action("AffecterProductToBasket", "Product", new { id = item.id})" class="btn btn-info"><i class="fa fa-pencil"></i>  Edit</a>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+}
+

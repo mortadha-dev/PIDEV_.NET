@@ -1,0 +1,53 @@
+﻿@model IEnumerable<finalPidev.Models.RatingTopic>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Rating of Topic </h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id.user.firstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id.topic.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.etoile)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id.user.firstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id.topic.title)
+            </td>
+            <td>
+                
+                @for (int i = 0; i < item.etoile ; i++)
+                {
+                <i class="glyphicon glyphicon-star"></i>
+                }
+                @for (int i=  item.etoile ; i < 5; i++)
+                {
+                    <i class="glyphicon glyphicon-star-empty"></i>
+                }
+            </td>
+
+        </tr>
+    }
+<p>
+    <a href="@Url.Action("Rate", "RatingTopic" )" class="btn btn-danger"> Rate</a>
+    <a href="@Url.Action("Rate", "RatingTopic" )" class="btn btn-secondary"> Best topics</a>
+    <a href="@Url.Action("Index", "Topic")" class="btn btn-primary"> Back to List</a>
+
+</p>
+</table>
