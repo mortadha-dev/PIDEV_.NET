@@ -27,14 +27,12 @@
                         <a href="single.html"> @Html.DisplayFor(modelItem => item.Description)</a>
                     </h4>
                     <div class="info-product-price">
-                        <span class="item_price"> @Html.DisplayFor(modelItem => item.priceProduct) TND</span>
                         <del>promotion</del>
                     </div>
                     <div class="A">
                         <form action="#" method="post">
                             <fieldset>
                                 <input type="hidden" name="item_name" value=" @Html.DisplayFor(modelItem => item.Description)" />
-                                <input type="hidden" name="amount" value="@Html.DisplayFor(modelItem => item.priceProduct)" />
                             </fieldset>
                             <a href="@Url.Action("AffecterProductToBasket", "Product", new { id = item.id})" class="btn btn-info"><i class="fa fa-pencil"></i> Add to Card</a>
 

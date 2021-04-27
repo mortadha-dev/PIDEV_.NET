@@ -60,10 +60,10 @@ C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\fr\System
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\fr\System.Web.WebPages.resources.dll
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\fr\System.Web.WebPages.Deployment.resources.dll
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\fr\System.Web.WebPages.Razor.resources.dll
-C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\obj\Debug\ConsumeWebServices.csprojAssemblyReference.cache
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\obj\Debug\ConsumeWebServices.csproj.CoreCompileInputs.cache
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\obj\Debug\ConsumeWebServices.csproj.CopyComplete
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\obj\Debug\ConsumeWebServices.dll
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\obj\Debug\ConsumeWebServices.pdb
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\Microsoft.AspNet.Identity.Core.dll
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\obj\Debug\ConsumeWebServices.csprojAssemblyReference.cache

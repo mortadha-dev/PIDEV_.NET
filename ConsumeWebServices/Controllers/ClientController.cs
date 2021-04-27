@@ -12,8 +12,6 @@ namespace ConsumeWebServices.Controllers
         // GET: Client
         public ActionResult ClientVue()
         {
-            //Session["FullNammmme"] = b.id.ToString();
-
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:8085");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

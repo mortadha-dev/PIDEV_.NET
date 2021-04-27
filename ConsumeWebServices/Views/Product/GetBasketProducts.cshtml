@@ -48,53 +48,92 @@
 </table>
 
 @section table {
-  
 
-        <div class="table-responsive">
-            <table class="timetable_sub">
-                <thead>
-                    <tr>
+    <h4>
+        Your shopping cart contains:
+        <span> @Session["count"].ToString() Products</span>
+    </h4>
+    <div class="table-responsive">
+        <table class="timetable_sub">
+            <thead>
+                <tr>
+                    <th>Product Code</th>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                    <th>Quantity</th>
+                    <th>Remove From Basket    </th>
+                    <th> Total Price : @Session["basketprice"].ToString()</th>
 
-                        <th>Product</th>
-                        <th>Quality</th>
-                        <th>Product Name</th>
-
-                        <th>Price</th>
-                        <th>Remove</th>
-                    </tr>
-                </thead>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
                 <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr class="rem1">
-                            <td class="invert">1</td>
-                            <td class="invert-image">
-                                @Html.DisplayFor(modelItem => item.NameProduct)
+                    <tr class="rem1">
+                        <td class="invert">
+                            @Html.DisplayFor(modelItem => item.Code)
+                        </td>
+                        <td class="invert">
+                            @Html.DisplayFor(modelItem => item.NameProduct)
+                        </td>
+                        <td class="invert">
+                            @Html.DisplayFor(modelItem => item.priceProduct)
 
-                            </td>
-                            <td class="invert">
-                                <div class="quantity">
-                                </div>
-                            </td>
-                            <td class="invert">Spotzero Spin Mop</td>
-                            <td class="invert">$888.00</td>
-                            <td class="invert">
-                                <div class="rem">
-                                    <div class="close1"> </div>
-                                </div>
-                            </td>
-                        </tr>
-                    }
-
-                    </tbody>
-            </table>
-        </div>
-
-    
+                        </td>
+                        <td class="invert">
+                            @Html.DisplayFor(modelItem => item.quantity)
+                        </td>
+                        <td class="invert">
 
 
-    }
+                            <a onclick="Delete(@item.id)" class="btn btn-default"><i class="btn btn-danger"></i>  Delete</a>
 
-    <a href="@Url.Action("Create", "Customers")" class="btn btn-success"><i class="fa fa-pencil"></i>procéder au paiement</a>
 
+                        </td>
+                    </tr>
+                    <tr>
+                    </tr>
+
+
+                </tbody>
+            }
+        </table>
+
+
+    </div>
+
+
+}
+
+
+
+@section makepayment{
+
+    <div class="checkout-right-basket">
+        <a href="@Url.Action("Create", "Customers")">
+            Make a Payment
+            <span class="fa fa-hand-o-right" aria-hidden="true"></span>
+        </a>
+    </div>
+
+}
+
+<a href="@Url.Action("Create", "Customers")" class="btn btn-success"><i class="fa fa-pencil"></i>procéder au paiement</a>
+
+
+@section scripts{
+    <script>
+        $(function () {
+            var successMessage = '@TempData["SuccessMessage"]'
+            if (successMessage != '')
+                alertify.success(successMessage);
+        });
+
+        function Delete(id) {
+            alertify.confirm('Consommi Tounsi','Are You Sure to Delete this Product From Your Basket ?',function(){
+                window.location.href  = '@Url.Action("Delete","Product")/'+id;
+            },null );
+        }
+    </script>
+}
 
