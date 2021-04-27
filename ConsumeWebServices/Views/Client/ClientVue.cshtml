@@ -53,15 +53,22 @@
                 alertify.confirm(successMessage);
         });
     </script>
+    <script>
+        $(function () {
+            var successMessage = '@TempData["added"]'
+            if (successMessage != '')
+                alertify.alert(successMessage);
+        });
+    </script>
 }
 
 
 @section mortadhacard{
 
 
-     <a href="@Url.Action("GetBasketProducts", "Product")" >
+    <a href="@Url.Action("GetBasketProducts", "Product")">
         <span class="fa fa-cart-arrow-down" aria-hidden="true"></span> check Basket
-        </a>
+    </a>
 
 }
     }

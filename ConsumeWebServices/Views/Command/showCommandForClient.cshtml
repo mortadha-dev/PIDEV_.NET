@@ -1,0 +1,102 @@
+﻿@model IEnumerable<ConsumeWebServices.Models.Command>
+
+@{
+    ViewBag.Title = "showCommandForClient";
+    Layout = "~/Views/Shared/_Footer.cshtml";
+}
+
+<h2>showCommandForClient</h2>
+
+@section table {
+
+    <h4>
+        Your Command:
+       
+    </h4>
+    <div class="table-responsive">
+        <table class="timetable_sub">
+            <thead>
+                <tr>
+                    <th>Date Commande</th>
+                    <th>Etat Commande</th>
+                    <th> Montant TTC : @Session["basketprice"].ToString()</th>
+                    <th>Remove From Basket</th>
+
+
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tbody>
+                    <tr class="rem1">
+                        <td class="invert">
+                            @Html.DisplayFor(modelItem => item.dateComm)
+                        </td>
+                        <td class="invert">
+                            @Html.DisplayFor(modelItem => item.etatcommande)
+                        </td>
+                        <td class="invert">
+                            @Html.DisplayFor(modelItem => item.montant)
+
+                        </td>
+                        <td class="invert">
+
+
+                            <a onclick="Delete(@item.id)" class="btn btn-default"><i class="btn btn-danger"></i>  Delete</a>
+
+
+                        </td>
+                    </tr>
+                    <tr>
+                    </tr>
+
+
+                </tbody>
+            }
+        </table>
+
+
+    </div>
+
+
+}
+
+
+
+@section makepayment{
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="checkout-right">
+
+        <div class="checkout-right-basket">
+
+            <a href="@Url.Action("addcommandonbasket", "Command")">  Make Payment</a>
+
+            <span class="fa fa-hand-o-right" aria-hidden="true"></span>
+            </a>
+        </div>
+
+    </div>
+
+}
+
+@section scripts{
+    <script>
+        $(function (){
+            var successMessage = '@TempData["SuccessMessage"]'
+            if (successMessage != '')
+                alertify.success(successMessage);
+        });
+
+        function Delete(id) {
+            alertify.confirm('Consommi Tounsi','Are You Sure to Cancel this Command ?',function(){
+                window.location.href  = '@Url.Action("Delete","Product")/'+id;
+            },null );
+        }
+    </script>
+}
+
+
+

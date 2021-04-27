@@ -105,20 +105,27 @@
 
 }
 
-
-
 @section makepayment{
 
     <div class="checkout-right-basket">
-        <a href="@Url.Action("Create", "Customers")">
-            Make a Payment
-            <span class="fa fa-hand-o-right" aria-hidden="true"></span>
+        <a href="@Url.Action("ClientVue", "Client")">
+            Continue Shopping
+            <span class="fa fa-hand-o-left" aria-hidden="true"></span>
         </a>
+    </div>
+    <br />
+    <br />
+    <div class="checkout-right-basket">
+        <h2>
+            <a href="@Url.Action("addcommandonbasket", "Command")">
+                Pass A Command
+                <span class="fa fa-hand-o-right" aria-hidden="true"></span>
+            </a>
+        </h2>
     </div>
 
 }
 
-<a href="@Url.Action("Create", "Customers")" class="btn btn-success"><i class="fa fa-pencil"></i>procéder au paiement</a>
 
 
 @section scripts{
@@ -131,7 +138,7 @@
 
         function Delete(id) {
             alertify.confirm('Consommi Tounsi','Are You Sure to Delete this Product From Your Basket ?',function(){
-                window.location.href  = '@Url.Action("Delete","Product")/'+id;
+                window.location.href='@Url.Action("Delete","Product")/'+id;
             },null );
         }
     </script>

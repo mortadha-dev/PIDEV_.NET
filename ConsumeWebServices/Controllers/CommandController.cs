@@ -31,23 +31,19 @@ namespace ConsumeWebServices.Controllers
         }
 
 
-        [HttpGet]
-        public ActionResult Create()
+
+
+        public ActionResult addcommandonbasket(Command c)
         {
-            return View();
-        }
-
-
-
-        [HttpPost]
-
-        public ActionResult Create(Basket b, int userid)
-        {
+            var idbasket = Session["basketid"];
+            var iduser = Session["clientid"];
 
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:8085");
-            client.PostAsJsonAsync<Basket>("pidev/basket/addbasket/" + userid, b).ContinueWith((postTask) => postTask.Result.EnsureSuccessStatusCode());
-            return RedirectToAction("Index");
+            client.PutAsJsonAsync<Command>("pidev/command/affectCommandBasket/" + idbasket+'/'+iduser ,c).ContinueWith((postTask) => postTask.Result.EnsureSuccessStatusCode());
+            TempData["added"] = "Command is added sucessfully process to payment";
+
+            return RedirectToAction("showCommandForClient");
         }
 
         public ActionResult Delete(int id)
@@ -59,15 +55,27 @@ namespace ConsumeWebServices.Controllers
         }
 
 
-        public ActionResult Edit([System.Web.Http.FromBody] String b)
+        public ActionResult showCommandForClient()
         {
-            Basket ba = new Basket();
-            b = ba.nameBasket;
+            var basketid = Session["basketid"];
+
+
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:8085");
-            client.PutAsJsonAsync<String>("pidev/basket/modifyName/", b).ContinueWith((postTask) => postTask.Result.EnsureSuccessStatusCode());
-            return RedirectToAction("Index");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("pidev/command/showcommand/" + basketid).Result;
 
+            if (response.IsSuccessStatusCode)
+            {
+                var command = response.Content.ReadAsAsync<IEnumerable<Command>>().Result;
+
+                return View(command);
+
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [HttpGet]
