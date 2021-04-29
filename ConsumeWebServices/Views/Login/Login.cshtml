@@ -1,62 +1,70 @@
 ﻿@model ConsumeWebServices.Models.User
+
 @{
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_Login.cshtml";
 }
 <h2>Sign Up</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("signup", "User", FormMethod.Post))
 {
-    @Html.HiddenFor(model => model.idUser)
+    @Html.HiddenFor(model => model.idUser)//tesma3 fiya ?? aloooooleeee !!!
 
     <div class="wrap-input100 validate-input" data-validate="Password is required">
-        @Html.EditorFor(model => model.firstName)
+        @Html.EditorFor(model => model.FirstName)
 
-        @Html.LabelFor(model => model.firstName, new { @style = "margin-left:-98px; margin-top:1px;" })
-        @Html.ValidationMessageFor(model => model.firstName)
+        @Html.LabelFor(model => model.FirstName, new { @style = "margin-left:-98px; margin-top:1px;" })
+        @Html.ValidationMessageFor(model => model.FirstName)
     </div>
 
     <div class="wrap-input100 validate-input" data-validate="Password is required">
-        @Html.EditorFor(model => model.lastName)
+        @Html.EditorFor(model => model.LastName)
 
-        @Html.LabelFor(model => model.lastName, new { @style = "margin-left:-98px; margin-top:1px;" })
-        @Html.ValidationMessageFor(model => model.lastName)
+        @Html.LabelFor(model => model.LastName, new { @style = "margin-left:-98px; margin-top:1px;" })
+        @Html.ValidationMessageFor(model => model.LastName)
     </div>
 
     <div class="wrap-input100 validate-input" data-validate="Password is required">
-        @Html.EditorFor(model => model.telNum)
+        @Html.EditorFor(model => model.TelNum)
 
-        @Html.LabelFor(model => model.telNum, new { @style = "margin-left:-100px; margin-top:1px;" })
-        @Html.ValidationMessageFor(model => model.telNum)
+        @Html.LabelFor(model => model.TelNum, new { @style = "margin-left:-100px; margin-top:1px;" })
+        @Html.ValidationMessageFor(model => model.TelNum)
     </div>
 
     <div class="wrap-input100 validate-input" data-validate="Password is required">
-        @Html.EditorFor(model => model.address)
+        @Html.EditorFor(model => model.Address)
 
-        @Html.LabelFor(model => model.address, new { @style = "margin-left:-98px; margin-top:1px;" })
-        @Html.ValidationMessageFor(model => model.address)
+        @Html.LabelFor(model => model.Address, new { @style = "margin-left:-98px; margin-top:1px;" })
+        @Html.ValidationMessageFor(model => model.Address)
     </div>
     <div class="wrap-input100 validate-input" data-validate="Password is required">
-        @Html.EditorFor(model => model.mail)
+        @Html.EditorFor(model => model.Mail)
 
-        @Html.LabelFor(model => model.mail, new { @style = "margin-left:-110px; margin-top:1px;" })
-        @Html.ValidationMessageFor(model => model.mail)
+        @Html.LabelFor(model => model.Mail, new { @style = "margin-left:-110px; margin-top:1px;" })
+        @Html.ValidationMessageFor(model => model.Mail)
     </div>
     <div class="wrap-input100 validate-input" data-validate="Password is required">
-        @Html.EditorFor(model => model.login)
+        @Html.EditorFor(model => model.Login)
 
-        @Html.LabelFor(model => model.login, new { @style = "margin-left:-110px; margin-top:1px;" })
-        @Html.ValidationMessageFor(model => model.login)
+        @Html.LabelFor(model => model.Login, new { @style = "margin-left:-110px; margin-top:1px;" })
+        @Html.ValidationMessageFor(model => model.Login)
     </div>
 
     <div class="wrap-input100 validate-input" data-validate="Password is required">
-        @Html.EditorFor(model => model.password)
-        @Html.LabelFor(model => model.password, new { @style = "margin-left:-98px; margin-top:1px;" })
-        @Html.ValidationMessageFor(model => model.password)
+        @Html.EditorFor(model => model.Password)
+        @Html.LabelFor(model => model.Password, new { @style = "margin-left:-98px; margin-top:1px;" })
+        @Html.ValidationMessageFor(model => model.Password)
     </div>
 
+    <div class="wrap-input100 validate-input" data-validate="Password is required">
+        @Html.EditorFor(model => model.RoleType)
+        @Html.LabelFor(model => model.RoleType, new { @style = "margin-left:-98px; margin-top:1px;" })
+        @Html.ValidationMessageFor(model => model.RoleType)
+    </div>
 
-    @Html.ActionLink("Register", "Register")
+    <form action="@Url.Action("Login", "Login")">
+        <button type="submit" class="submit" />sign in
+    </form>
 }
 
 @section something {
@@ -66,26 +74,29 @@
         @Html.HiddenFor(model => model.idUser)
 
         <div class="wrap-input100 validate-input" data-validate="Password is required">
-            @Html.EditorFor(model => model.login)
+            <input class="text-box single-line" id="username" name="username" type="text" value="">
 
-            @Html.LabelFor(model => model.login, new { @style = "margin-left:-98px; margin-top:1px;" })
-            @Html.ValidationMessageFor(model => model.login)
+
+            @Html.LabelFor(model => model.Login, new { @style = "margin-left:-98px; margin-top:1px;", name = "username" })
+            @Html.ValidationMessageFor(model => model.Login)
         </div>
 
         <div class="wrap-input100 validate-input" data-validate="Password is required">
-            @Html.EditorFor(model => model.password)
+            @Html.EditorFor(model => model.Password)
 
-            @Html.LabelFor(model => model.password, new { @style = "margin-left:-98px; margin-top:1px;" })
-            @Html.ValidationMessageFor(model => model.password)
+            @Html.LabelFor(model => model.Password, new { @style = "margin-left:-98px; margin-top:1px;" })
+            @Html.ValidationMessageFor(model => model.Password)
         </div>
 
 
         <form action="@Url.Action("Login", "Login")">
             <button type="submit" class="submit" />sign in
         </form>
+        <form action="@Url.Action("ForgotPassword", "Login")">
+            <button type="submit" class="submit" />Forgot Password ?
+        </form>
 
-        <p class="forgot-pass">Forgot Password ?</p>
-
+        <p class="forgot-pass">Forgot Password ?</p> 
         <div class="social-media">
             <ul>
                 <li><img src="~/ClientStyle/login_register/images/facebook.png"></li>
@@ -96,7 +107,30 @@
         </div>
     }
 
+
+    @*
+         @section something{
+         <div class="login-container">
+             <div id="output">
+                 @if (TempData["loginError"] != null)
+                 {
+                     <div class="alert alert-warning" role="alert">
+                         @TempData["loginError"]
+                     </div>
+                 }
+             </div>
+             <div class="avatar"></div>
+             <div class="form-box">
+                 <form action="/Login/Login" method="post">
+                     <input name="username" type="text" placeholder="username" style="margin-left:-98px; margin-top:1px;">
+
+                     <input name="password" type="password" placeholder="password" style="margin-left:-98px; margin-top:1px;">
+                     <button class="btn btn-info btn-block login" type="submit">Login</button>
+                 </form>
+             </div>
+
+         </div>
+
+        } *@
+
 }
-
-
-

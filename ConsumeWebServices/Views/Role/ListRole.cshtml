@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ConsumeWebServices.Models.Role>
+
+@{
+    ViewBag.Title = "ListRole";
+}
+
+<h2>ListRole</h2>
+
+<p>
+    @Html.ActionLink("create new", "CreateRole")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idRole)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.roleType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.idRole)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.roleType)
+    </td>
+    <td>
+        @{ int id = @item.idRole;}
+
+        <a href="@Url.Action("UpdateRole", "Role")" class="btn btn-danger">Update</a>
+
+        <a href="@Url.Action("DeleteRole", "Role",new {idRole=item.idRole})" class="btn btn-danger">Delete</a>
+    </td>
+</tr>
+}
+
+</table>

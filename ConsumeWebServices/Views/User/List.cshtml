@@ -1,0 +1,114 @@
+﻿@model IEnumerable<ConsumeWebServices.Models.User>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idUser)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Birthdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Login)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.RoleType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.valid)
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.idUser)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Login)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TelNum)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Birthdate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Address)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Mail)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Password)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RoleType)
+    </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.failedAttempt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.valid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stripeid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.resettoken)
+        </td>
+
+<td>
+    @{ int idUser = @item.idUser;}
+    <a href="@Url.Action("activateUser", "User", new { valid = item.valid })" class="btn btn-danger">activateUser</a>
+    <a href="@Url.Action("desactivateUser","User", new { valid = item.valid })" class="btn btn-danger">desactivateUser</a>
+
+    <a href="@Url.Action("DeleteUser", "User", new { idUser = item.idUser })" class="btn btn-danger">Delete</a>
+</td>
+
+</tr>
+    }
+
+
+</table>

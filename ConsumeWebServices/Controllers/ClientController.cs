@@ -1,13 +1,9 @@
-<<<<<<< HEAD
-﻿using System.Web.Mvc;
-=======
 ﻿using ConsumeWebServices.Models;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Mvc;
->>>>>>> 034e99bb862299a454d2ccf7413371f367e6571f
 
 namespace ConsumeWebServices.Controllers
 {
@@ -16,9 +12,6 @@ namespace ConsumeWebServices.Controllers
         // GET: Client
         public ActionResult ClientVue()
         {
-<<<<<<< HEAD
-            return View();
-=======
             //Session["FullNammmme"] = b.id.ToString();
 
             HttpClient client = new HttpClient();
@@ -38,7 +31,6 @@ namespace ConsumeWebServices.Controllers
                 return View(new List<Product>());
             }
           
->>>>>>> 034e99bb862299a454d2ccf7413371f367e6571f
         }
     }
 }

@@ -52,6 +52,7 @@ namespace ConsumeWebServices.Controllers
 
         public ActionResult Delete(int id)
         {
+
             HttpClient client = new HttpClient();
             HttpResponseMessage response = client.DeleteAsync("http://localhost:8085/pidev/basket/deletebasket/" + id.ToString()).Result;
 
