@@ -41,7 +41,7 @@ namespace ConsumeWebServices.Controllers
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:8085");
             client.PutAsJsonAsync<Command>("pidev/command/affectCommandBasket/" + idbasket+'/'+iduser ,c).ContinueWith((postTask) => postTask.Result.EnsureSuccessStatusCode());
-            TempData["added"] = "Command is added sucessfully process to payment";
+            TempData["added"] = "You're Command is passed ! Enjoy Our Products <3";
 
             return RedirectToAction("showCommandForClient");
         }
@@ -78,11 +78,32 @@ namespace ConsumeWebServices.Controllers
             }
         }
 
-        [HttpGet]
-        public ActionResult Edit()
+
+
+        public ActionResult showCommandForAdmin()
         {
-            return View();
+           
+
+
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:8085");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("pidev/command/showcommands").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var command = response.Content.ReadAsAsync<IEnumerable<Command>>().Result;
+
+                return View(command);
+
+            }
+            else
+            {
+                return View();
+            }
         }
+
+
 
     }
 }

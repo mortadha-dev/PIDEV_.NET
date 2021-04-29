@@ -54,10 +54,29 @@ namespace ConsumeWebServices.Controllers
             }
         }
 
+        
 
 
+        public ActionResult ShowSingleProduct(int id)
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:8085");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("pidev/products/getproductbyid/"+id).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var products = response.Content.ReadAsAsync<Product>().Result;
 
-     
+                return View(products);
+
+            }
+            else
+            {
+                ViewBag.result = "error";
+                return View(new List<Product>());
+            }
+        }
+
 
 
         [System.Web.Http.HttpPost]

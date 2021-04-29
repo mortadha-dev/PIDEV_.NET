@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ConsumeWebServices.Models.Command>
+
+@{
+    ViewBag.Title = "showCommandForAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>All the clients Commands</h2>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        DataTable Example
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                     
+                        <th>Date Commande </th>
+                        <th>Etat Commande</th>
+                        <th>Montant (TND) </th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tbody>
+                        <tr>
+                            <td> @Html.DisplayFor(modelItem => item.dateComm)</td>
+                           
+                      
+                        
+                            
+                            <td> @Html.DisplayFor(modelItem => item.etatcommande)</td>
+                      
+                        
+                            <td> @Html.DisplayFor(modelItem => item.montant)</td>
+                           
+                        </tr>
+
+                    </tbody>
+                }
+                </table>
+        </div>
+    </div>
+</div>

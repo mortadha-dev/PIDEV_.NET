@@ -1,0 +1,205 @@
+﻿@model ConsumeWebServices.Models.Product
+
+@{
+    ViewBag.Title = "ShowSingleProduct";
+    Layout = "~/Views/Shared/_SingleProduct.cshtml";
+}
+
+
+@section details
+{
+    <div class="container">
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l">
+           Product Details
+            <span class="heading-style">
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+        </h3>
+        <!-- //tittle heading -->
+        <div class="col-md-5 single-right-left ">
+            <div class="grid images_3_of_2">
+                <div class="flexslider">
+                    <ul class="slides">
+                        @{
+
+                            if (Model.Description == "webcam")
+
+                            {
+                                <li data-thumb="~/ClientStyle/images/webcam.jpg">
+                                    <div class="thumb-image">
+                                        <img src="~/ClientStyle/images/webcam.jpg" data-imagezoom="true" class="img-responsive" alt="">
+                                    </div>
+                                </li>
+
+                            }
+
+                            if (Model.NameProduct == "Ordinateur de Bureau")
+                            {
+                                <li data-thumb="~/ClientStyle/images/bure.jpg">
+                                    <div class="thumb-image">
+                                        <img src="~/ClientStyle/images/bure.jpg" data-imagezoom="true" class="img-responsive" alt="">
+                                    </div>
+                                </li>
+                            }
+                            if (Model.NameProduct == "ordinateur protable")
+                            {
+                                <li data-thumb="~/ClientStyle/images/pc.jpg">
+                                    <div class="thumb-image">
+                                        <img src="~/ClientStyle/images/pc.jpg" data-imagezoom="true" class="img-responsive" alt="">
+                                    </div>
+                                </li>
+                            }
+                            if (Model.NameProduct == "souris")
+                            {
+                                <li data-thumb="~/ClientStyle/images/souris.jpg">
+                                    <div class="thumb-image">
+                                        <img src="~/ClientStyle/images/souris.jpg" data-imagezoom="true" class="img-responsive" alt="">
+                                    </div>
+                                </li>
+                            }
+                            if (Model.NameProduct == "soin de la peau")
+                            {
+                                <li data-thumb="~/ClientStyle/images/s6.jpg">
+                                    <div class="thumb-image">
+                                        <img src="~/ClientStyle/images/s6.jpg" data-imagezoom="true" class="img-responsive" alt="">
+                                    </div>
+                                </li>
+                            }
+                            if (Model.NameProduct == "Cappilaire")
+                            {
+                                <li data-thumb="~/ClientStyle/images/s7.jpg">
+                                    <div class="thumb-image">
+                                        <img src="~/ClientStyle/images/s7.jpg" data-imagezoom="true" class="img-responsive" alt="">
+                                    </div>
+                                </li>
+                            }
+                            if (Model.NameProduct == "parfum")
+                            {
+                                <li data-thumb="~/ClientStyle/images/a6.jpg">
+                                    <div class="thumb-image">
+                                        <img src="~/ClientStyle/images/a6.jpg" data-imagezoom="true" class="img-responsive" alt="">
+                                    </div>
+                                </li>
+                            }
+                            if (Model.NameProduct == "TV SONY")
+                            {
+                                <li data-thumb="~/ClientStyle/images/sony.jpg">
+                                    <div class="thumb-image">
+                                        <img src="~/ClientStyle/images/sony.jpg" data-imagezoom="true" class="img-responsive" alt="">
+                                    </div>
+                                </li>
+                            }
+                            if (Model.NameProduct == "TV CONDOR")
+                            {
+                                <li data-thumb="~/ClientStyle/images/condor.jpg">
+                                    <div class="thumb-image">
+                                        <img src="~/ClientStyle/images/condor.jpg" data-imagezoom="true" class="img-responsive" alt="">
+                                    </div>
+                                </li>
+                            }
+
+                            if (Model.NameProduct == "Camera Canon")
+                            {
+                                <li data-thumb="~/ClientStyle/images/canon.jpg">
+                                    <div class="thumb-image">
+                                        <img src="~/ClientStyle/images/canon.jpg" data-imagezoom="true" class="img-responsive" alt="">
+                                    </div>
+                                </li>
+                            }
+
+
+
+
+
+
+
+
+
+
+
+                        }
+
+
+
+
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7 single-right-left simpleCart_shelfItem">
+            <h3>
+                <dd>
+                    @Html.DisplayFor(model => model.NameProduct)
+                </dd>
+            </h3>
+            <div class="rating1">
+                <span class="starRating">
+                    <input id="rating5" type="radio" name="rating" value="5">
+                    <label for="rating5">5</label>
+                    <input id="rating4" type="radio" name="rating" value="4">
+                    <label for="rating4">4</label>
+                    <input id="rating3" type="radio" name="rating" value="3" checked="">
+                    <label for="rating3">3</label>
+                    <input id="rating2" type="radio" name="rating" value="2">
+                    <label for="rating2">2</label>
+                    <input id="rating1" type="radio" name="rating" value="1">
+                    <label for="rating1">1</label>
+                </span>
+            </div>
+            <p>
+                <span class="item_price">
+    @Html.DisplayFor(model => model.priceProduct) TND
+</span>
+               
+                <label>100% Tunisian</label>
+            </p>
+            <div class="single-infoagile">
+                <ul>
+                   Code <label>#619</label>
+                    <li>
+                        Shipping Speed to Delivery.
+                    </li>
+                    <li>
+                        Sold and fulfilled by Supple Tek (3.6 out of 5 | 8 ratings).
+                    </li>
+                  
+                </ul>
+            </div>
+            <div class="product-single-w3l">
+                <p>
+                    <i class="fa fa-hand-o-right" aria-hidden="true"></i>This is a
+                    <label>Tunisian </label> Product.
+                </p>
+                <ul>
+                    <li>
+                        Consommi Tounsi #619.
+                    </li>
+                    <li>
+                       Best Eshop with low prices Enjoy
+                    </li>
+                 
+                </ul>
+                <p>
+                    <i class="fa fa-refresh" aria-hidden="true"></i>All food products are
+                    <label>non-returnable.</label>
+                </p>
+            </div>
+            <div class="occasion-cart">
+                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                    <form action="#" method="post">
+                        <fieldset>
+                            <a href="@Url.Action("AffecterProductToBasket", "Product", new { id = Model.id})" class="btn btn-success"> Add this Product To Your Card</a>
+                        </fieldset>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    }

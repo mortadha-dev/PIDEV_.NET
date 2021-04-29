@@ -8,26 +8,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="zxx">
 
 <head>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="~/Content/alertifyjs/alertify.min.css" rel="stylesheet" />
-    <link href="~/Content/alertifyjs/themes/default.min.css" rel="stylesheet" />
-
-    <title>Grocery Shoppy an Ecommerce Category Bootstrap Responsive Web Template | Checkout :: w3layouts</title>
+    <title>Grocery Shoppy an Ecommerce Category Bootstrap Responsive Web Template | Single :: w3layouts</title>
     <!--/tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Grocery Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script>
-        addEventListener("load", function () {
-            setTimeout(hideURLbar, 0);
-        }, false);
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
 
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
     </script>
     <!--//tags -->
     <link href="~/ClientStyle/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
@@ -37,12 +31,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="~/ClientStyle/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
     <!--//pop-up-box-->
     <!-- price range -->
-    <link rel="stylesheet" type="text/css" href="~/ClientStyle/css/jquery-ui1.css">
+    <link rel="stylesheet" type="text/css" href="~/ClientStyle/css/css/jquery-ui1.css">
+    <!-- flexslider -->
+    <link rel="stylesheet" href="~/ClientStyle/css/flexslider.css" type="text/css" media="screen" />
     <!-- fonts -->
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 </head>
 
 <body>
+    @RenderBody()
     <!-- top-header -->
     <div class="header-most-top">
         <p>100% Tunisian Products </p>
@@ -57,7 +54,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="@Url.Action("ClientVue", "Client")">
                         <span>C</span>onsommi
                         <span>T</span>ounsi
-                        <span>#</span>619
                         <img src="~/ClientStyle/images/logo2.png" alt=" ">
                     </a>
                 </h1>
@@ -80,15 +76,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span class="fa fa-phone" aria-hidden="true"></span> +216 28606573
                     </li>
                     <li>
-                        <a href="#" data-toggle="modal" data-target="#myModal1">
-                            <span class="fa fa-unlock-alt" aria-hidden="true"></span> 
-                        </a>
-                    </li>
                     <li>
                         <a href="@Url.Action("Login", "Login")">
-                            <span class="fa fa--alt" aria-hidden="true"></span> LogOut
+                            <span class="fa fa-unlock-alt" aria-hidden="true"></span> LogOut
                         </a>
                     </li>
+                    </li>
+
                 </ul>
                 <!-- //header lists -->
                 <!-- search -->
@@ -753,7 +747,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </div>
                                     </ul>
                                 </li>
-                                <li class="">
+                                <li>
                                     <a class="nav-stylehead" href="faqs.html">Faqs</a>
                                 </li>
                                 <li class="dropdown">
@@ -795,173 +789,125 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a href="index.html">Home</a>
                         <i>|</i>
                     </li>
-                    <li>Checkout</li>
+                    <li>Single Page</li>
                 </ul>
             </div>
         </div>
     </div>
     <!-- //page -->
-    <!-- checkout page -->
-    <div class="privacy">
+    <!-- Single Page -->
+    <div class="banner-bootom-w3-agileits">
+      @RenderSection("details")
+    </div>
+    <!-- //Single Page -->
+    <!-- special offers -->
+  
+    <!-- //special offers -->
+    <!-- newsletter -->
+
+    <!-- //newsletter -->
+    <!-- footer -->
+   
+    <!-- //footer -->
+    <!-- copyright -->
+    <div class="copy-right">
         <div class="container">
-            <!-- tittle heading -->
-            <h3 class="tittle-w3l">
-                Checkout
-                <span class="heading-style">
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                </span>
-            </h3>
-            <!-- //tittle heading -->
-            <div class="checkout-right">
-
-                @RenderSection("table")
-                
-                   
-                        @RenderSection("makepayment")
-                    
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
+            <p>
+                © 2021 Consommi Tounsi. All rights reserved | Design by
+                <a href="http://w3layouts.com"> Tunisian Creators.</a>
+            </p>
         </div>
-        <!-- //checkout page -->
-        <!-- newsletter -->
-  
-        <!-- //newsletter -->
-        <!-- footer -->
-  
-        <!-- //footer -->
-        <!-- copyright -->
-        <div class="copy-right">
-            <div class="container">
-                <p>
-                    © 2017 Grocery Shoppy. All rights reserved | Design by
-                    <a href="http://w3layouts.com"> W3layouts.</a>
-                </p>
-            </div>
-        </div>
-        <!-- //copyright -->
-        <!-- js-files -->
-        <!-- jquery -->
-        <script src="~/ClientStyle/js/jquery-2.1.4.min.js"></script>
-        <!-- //jquery -->
-        <!-- popup modal (for signin & signup)-->
-        <script src="~/ClientStyle/js/jquery.magnific-popup.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('.popup-with-zoom-anim').magnificPopup({
-                    type: 'inline',
-                    fixedContentPos: false,
-                    fixedBgPos: true,
-                    overflowY: 'auto',
-                    closeBtnInside: true,
-                    preloader: false,
-                    midClick: true,
-                    removalDelay: 300,
-                    mainClass: 'my-mfp-zoom-in'
-                });
+    </div>
+    <!-- //copyright -->
+    <!-- js-files -->
+    <!-- jquery -->
+    <script src="~/ClientStyle/js/jquery-2.1.4.min.js"></script>
+    <!-- //jquery -->
+    <!-- popup modal (for signin & signup)-->
+    <script src="~/ClientStyle/js/jquery.magnific-popup.js"></script>
+    <script>
+		$(document).ready(function () {
+			$('.popup-with-zoom-anim').magnificPopup({
+				type: 'inline',
+				fixedContentPos: false,
+				fixedBgPos: true,
+				overflowY: 'auto',
+				closeBtnInside: true,
+				preloader: false,
+				midClick: true,
+				removalDelay: 300,
+				mainClass: 'my-mfp-zoom-in'
+			});
 
-            });
-        </script>
-        <!-- Large modal -->
-        <!-- <script>
+		});
+    </script>
+    <!-- Large modal -->
+    <!-- <script>
         $('#').modal('show');
     </script> -->
-        <!-- //popup modal (for signin & signup)-->
-        <!-- cart-js -->
-        <script src="~/ClientStyle/js/minicart.js"></script>
-        <script>
-            paypalm.minicartk.render(); //use only unique class names other than paypal1.minicart1.Also Replace same class name in css and minicart.min.js
+    <!-- //popup modal (for signin & signup)-->
+    <!-- cart-js -->
+    <script src="~/ClientStyle/js/minicart.js"></script>
+  
+    <!-- //cart-js -->
+    <!-- password-script -->
 
-            paypalm.minicartk.cart.on('checkout', function (evt) {
-                var items = this.items(),
-                    len = items.length,
-                    total = 0,
-                    i;
+    <!-- //password-script -->
+    <!-- smoothscroll -->
+  
+    <!-- //end-smooth-scrolling -->
+    <!-- smooth-scrolling-of-move-up -->
+   
+    <!-- //smooth-scrolling-of-move-up -->
+    <!-- imagezoom -->
+    <script src="~/ClientStyle/js/imagezoom.js"></script>
+    <!-- //imagezoom -->
+    <!-- FlexSlider -->
+    <script src="~/ClientStyle/js/jquery.flexslider.js"></script>
+    <script>
+		// Can also be used with $(document).ready()
+		$(window).load(function () {
+			$('.flexslider').flexslider({
+				animation: "slide",
+				controlNav: "thumbnails"
+			});
+		});
+    </script>
+    <!-- //FlexSlider-->
+    <!-- flexisel (for special offers) -->
+    <script src="~/ClientStyle/js/jquery.flexisel.js"></script>
+    <script>
+		$(window).load(function () {
+			$("#flexiselDemo1").flexisel({
+				visibleItems: 3,
+				animationSpeed: 1000,
+				autoPlay: true,
+				autoPlaySpeed: 3000,
+				pauseOnHover: true,
+				enableResponsiveBreakpoints: true,
+				responsiveBreakpoints: {
+					portrait: {
+						changePoint: 480,
+						visibleItems: 1
+					},
+					landscape: {
+						changePoint: 640,
+						visibleItems: 2
+					},
+					tablet: {
+						changePoint: 768,
+						visibleItems: 2
+					}
+				}
+			});
 
-                // Count the number of each item in the cart
-                for (i = 0; i < len; i++) {
-                    total += items[i].get('quantity');
-                }
-
-                if (total < 3) {
-                    alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
-                    evt.preventDefault();
-                }
-            });
-        </script>
-        <!-- //cart-js -->
-        <!--quantity-->
-        <script>
-            $('.value-plus').on('click', function () {
-                var divUpd = $(this).parent().find('.value'),
-                    newVal = parseInt(divUpd.text(), 10) + 1;
-                divUpd.text(newVal);
-            });
-
-            $('.value-minus').on('click', function () {
-                var divUpd = $(this).parent().find('.value'),
-                    newVal = parseInt(divUpd.text(), 10) - 1;
-                if (newVal >= 1) divUpd.text(newVal);
-            });
-        </script>
-        <!--quantity-->
-        <script>
-            $(document).ready(function (c) {
-                $('.close1').on('click', function (c) {
-                    $('.rem1').fadeOut('slow', function (c) {
-                        $('.rem1').remove();
-                    });
-                });
-            });
-        </script>
-        <script>
-            $(document).ready(function (c) {
-                $('.close2').on('click', function (c) {
-                    $('.rem2').fadeOut('slow', function (c) {
-                        $('.rem2').remove();
-                    });
-                });
-            });
-        </script>
-        <script>
-            $(document).ready(function (c) {
-                $('.close3').on('click', function (c) {
-                    $('.rem3').fadeOut('slow', function (c) {
-                        $('.rem3').remove();
-                    });
-                });
-            });
-        </script>
-        <!--//quantity-->
-        <!-- password-script -->
-        <script>
-            window.onload = function () {
-                document.getElementById("password1").onchange = validatePassword;
-                document.getElementById("password2").onchange = validatePassword;
-            }
-
-            function validatePassword() {
-                var pass2 = document.getElementById("password2").value;
-                var pass1 = document.getElementById("password1").value;
-                if (pass1 != pass2)
-                    document.getElementById("password2").setCustomValidity("Passwords Don't Match");
-                else
-                    document.getElementById("password2").setCustomValidity('');
-                //empty string means no validation error
-            }
-        </script>
-        <!-- //password-script -->
-        <!-- for bootstrap working -->
-        <script src="js/bootstrap.js"></script>d
-        <!-- //for bootstrap working -->
-        <!-- //js-files -->
-
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        <script src="~/Scripts/alertify.min.js"></script>
-        @RenderSection("scripts", required: false)
+		});
+    </script>
+    <!-- //flexisel (for special offers) -->
+    <!-- for bootstrap working -->
+    <script src="~/ClientStyle/js/bootstrap.js"></script>
+    <!-- //for bootstrap working -->
+    <!-- //js-files -->
 
 </body>
 

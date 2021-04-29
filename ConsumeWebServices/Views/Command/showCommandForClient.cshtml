@@ -11,7 +11,7 @@
 
     <h4>
         Your Command:
-       
+
     </h4>
     <div class="table-responsive">
         <table class="timetable_sub">
@@ -72,7 +72,7 @@
 
         <div class="checkout-right-basket">
 
-            <a href="@Url.Action("addcommandonbasket", "Command")">  Make Payment</a>
+            <a href="@Url.Action("var", "Payment")">  Make Payment</a>
 
             <span class="fa fa-hand-o-right" aria-hidden="true"></span>
             </a>
@@ -95,6 +95,13 @@
                 window.location.href  = '@Url.Action("Delete","Product")/'+id;
             },null );
         }
+    </script>
+    <script>
+        $(function addcommandonbasket () {
+            var successMessage = '@TempData["added"]'
+            if (successMessage != '')
+                alertify.alert(successMessage);
+        });
     </script>
 }
 

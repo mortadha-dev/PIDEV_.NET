@@ -28,6 +28,7 @@ C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\roslyn\vb
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\roslyn\VBCSCompiler.exe
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\Antlr3.Runtime.dll
+C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\Microsoft.AspNet.Identity.Core.dll
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\Newtonsoft.Json.dll
@@ -41,6 +42,8 @@ C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\System.We
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\System.Web.WebPages.dll
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\System.Web.WebPages.Razor.dll
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\WebGrease.dll
+C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\Newtonsoft.Json.xml
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\System.Net.Http.Formatting.xml
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\System.Web.Http.xml
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\System.Web.Helpers.xml
@@ -50,7 +53,6 @@ C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\System.We
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\System.Web.WebPages.xml
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\System.Web.WebPages.Deployment.xml
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\System.Web.WebPages.Razor.xml
-C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\Newtonsoft.Json.xml
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\Antlr3.Runtime.pdb
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\fr\System.Web.Helpers.resources.dll
@@ -64,5 +66,4 @@ C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\obj\Debug\Con
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\obj\Debug\ConsumeWebServices.csproj.CopyComplete
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\obj\Debug\ConsumeWebServices.dll
 C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\obj\Debug\ConsumeWebServices.pdb
-C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\Microsoft.AspNet.Identity.Core.dll
-C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\LENOVO\source\repos\ConsumeWebServices\ConsumeWebServices\obj\Debug\ConsumeWebServices.csprojAssemblyReference.cache

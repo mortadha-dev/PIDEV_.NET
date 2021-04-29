@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ConsumeWebServices.Models.Loyaltycard>
+
+@{
+    ViewBag.Title = "showLoyaltyCards";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Loyalty Cards</h2>
+
+<p>
+    @Html.ActionLink("Add A Random Gift for clients", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Card Holder
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.randomgift)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.user.firstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.randomgift)
+    </td>
+
+
+   
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+    </td>
+</tr>
+}
+
+</table>

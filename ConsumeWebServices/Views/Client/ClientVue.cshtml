@@ -8,53 +8,284 @@
 
 
 @section testprod {
+    <h3> Produits Informatique</h3>
+
     @foreach (var item in Model)
     {
-        <div class="col-md-4 product-men">
-            <div class="men-pro-item simpleCart_shelfItem">
-                <div class="men-thumb-item">
-                    <img src="~/ClientStyle/images/m2.jpg" alt="">
-                    <div class="men-cart-pro">
-                        <div class="inner-men-cart-pro">
-                            <a href="single.html" class="link-product-add-cart">Quick View</a>
+
+        <div class="men-thumb-item">
+
+            @{
+                if (item.Picture == "Informatique")
+
+                {
+
+                    <div class="col-md-4 product-men">
+                        <div class="men-pro-item simpleCart_shelfItem">
+                            <div class="men-thumb-item">
+                                @{
+                                    if (item.NameProduct == "ordinateur protable")
+                                    {
+                                        <img src="~/ClientStyle/images/pc.jpg" alt="">
+                                    }
+
+                                    if (item.NameProduct == "Ordinateur de Bureau")
+                                    {
+                                        <img src="~/ClientStyle/images/bure.jpg" alt="">
+                                    }
+
+                                    if (item.NameProduct == "webcam")
+                                    {
+                                        <img src="~/ClientStyle/images/webcam.jpg" alt="">
+                                    }
+                                    if (item.NameProduct == "souris")
+                                    {
+                                        <img src="~/ClientStyle/images/souris.jpg" alt="">
+                                    }
+                                }
+
+
+                                <div class="men-cart-pro">
+                                    <div class="inner-men-cart-pro">
+
+  <a href="@Url.Action("ShowSingleProduct", "Product", new { id = item.id})" class="link-product-add-cart">Quick View</a>
+                                    </div>
+                                </div>
+                                <span class="product-new-top">New</span>
+
+                            </div>
+                            <div class="item-info-product ">
+                                <h4>
+                                    <a href="single.html"> @Html.DisplayFor(modelItem => item.NameProduct)</a>
+
+                                </h4>
+                                <div class="info-product-price">
+
+                                    <a href="single.html"> @Html.DisplayFor(modelItem => item.priceProduct) DT TTC</a>
+                                </div>
+                                <div class="A">
+                                    <form action="#" method="post">
+                                        <fieldset>
+                                            <input type="hidden" name="item_name" value=" @Html.DisplayFor(modelItem => item.Description)" />
+                                        </fieldset>
+                                        <a href="@Url.Action("AffecterProductToBasket", "Product", new { id = item.id})" class="btn btn-info"><i class="fa fa-pencil"></i> Add to Card</a>
+
+                                    </form>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-                    <span class="product-new-top">New</span>
 
-                </div>
-                <div class="item-info-product ">
-                    <h4>
-                        <a href="single.html"> @Html.DisplayFor(modelItem => item.Description)</a>
-                    </h4>
-                    <div class="info-product-price">
-                        <del>promotion</del>
-                    </div>
-                    <div class="A">
-                        <form action="#" method="post">
-                            <fieldset>
-                                <input type="hidden" name="item_name" value=" @Html.DisplayFor(modelItem => item.Description)" />
-                            </fieldset>
-                            <a href="@Url.Action("AffecterProductToBasket", "Product", new { id = item.id})" class="btn btn-info"><i class="fa fa-pencil"></i> Add to Card</a>
+                }
 
-                        </form>
-                    </div>
-
-                </div>
-            </div>
+            }
         </div>
     }
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+
+
 }
+
+
+
+@section oilprod{
+    <h3> Produits Cosmétiques</h3>
+
+    @foreach (var item in Model)
+    {
+
+        <div class="men-thumb-item">
+
+            @{
+                if (item.Picture == "cosmetique")
+
+                {
+
+                    <div class="col-md-4 product-men">
+                        <div class="men-pro-item simpleCart_shelfItem">
+                            <div class="men-thumb-item">
+                                @{
+                                    if (item.NameProduct == "soin de la peau")
+                                    {
+                                        <img src="~/ClientStyle/images/s6.jpg" alt="">
+                                    }
+
+                                    if (item.NameProduct == "Cappilaire")
+                                    {
+                                        <img src="~/ClientStyle/images/s7.jpg" alt="">
+                                    }
+
+                                    if (item.NameProduct == "parfum")
+                                    {
+                                        <img src="~/ClientStyle/images/a6.jpg" alt="">
+                                    }
+                                }
+
+
+                                <div class="men-cart-pro">
+                                    <div class="inner-men-cart-pro">
+                                        <a href="@Url.Action("ShowSingleProduct", "Product", new { id = item.id})" class="link-product-add-cart">Quick View</a>
+                                    </div>
+                                </div>
+                                <span class="product-new-top">New</span>
+
+                            </div>
+                            <div class="item-info-product ">
+                                <h4>
+                                    <a href="single.html"> @Html.DisplayFor(modelItem => item.NameProduct)</a>
+
+                                </h4>
+                                <div class="info-product-price">
+
+                                    <a href="single.html"> @Html.DisplayFor(modelItem => item.priceProduct) TND</a>
+                                </div>
+                                <div class="A">
+                                    <form action="#" method="post">
+                                        <fieldset>
+                                            <input type="hidden" name="item_name" value=" @Html.DisplayFor(modelItem => item.Description)" />
+                                        </fieldset>
+                                        <a href="@Url.Action("AffecterProductToBasket", "Product", new { id = item.id})" class="btn btn-info"><i class="fa fa-pencil"></i> Add to Card</a>
+
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+            }
+        </div>
+    }
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+
+
+}
+
+@section tvphotos{
+    <h3> TV/Photos</h3>
+
+    @foreach (var item in Model)
+    {
+
+        <div class="men-thumb-item">
+
+            @{
+                if (item.Picture == "tvphotos")
+
+                {
+
+                    <div class="col-md-4 product-men">
+                        <div class="men-pro-item simpleCart_shelfItem">
+                            <div class="men-thumb-item">
+                                @{
+                                    if (item.NameProduct == "TV SONY")
+                                    {
+                                        <img src="~/ClientStyle/images/sony.jpg" alt="">
+                                    }
+
+                                    if (item.NameProduct == "TV CONDOR")
+                                    {
+                                        <img src="~/ClientStyle/images/condor.jpg" alt="">
+                                    }
+
+                                    if (item.NameProduct == "Camera Canon")
+                                    {
+                                        <img src="~/ClientStyle/images/canon.jpg" alt="">
+                                    }
+                                }
+
+
+                                <div class="men-cart-pro">
+                                    <div class="inner-men-cart-pro">
+                                        <a href="@Url.Action("ShowSingleProduct", "Product", new { id = item.id})" class="link-product-add-cart">Quick View</a>
+                                    </div>
+                                </div>
+                                <span class="product-new-top">New</span>
+
+                            </div>
+                            <div class="item-info-product ">
+                                <h4>
+                                    <a href="single.html"> @Html.DisplayFor(modelItem => item.NameProduct)</a>
+
+                                </h4>
+                                <div class="info-product-price">
+
+                                    <a href="single.html"> @Html.DisplayFor(modelItem => item.priceProduct) TND</a>
+                                </div>
+                                <div class="A">
+                                    <form action="#" method="post">
+                                        <fieldset>
+                                            <input type="hidden" name="item_name" value=" @Html.DisplayFor(modelItem => item.Description)" />
+                                        </fieldset>
+                                        <a href="@Url.Action("AffecterProductToBasket", "Product", new { id = item.id})" class="btn btn-info"><i class="fa fa-pencil"></i> Add to Card</a>
+
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+            }
+        </div>
+    }
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @section scripts{
     <script>
-        $(function () {
+        $(function AffecterProductToBasket() {
             var successMessage = '@TempData["SuccessMessage"]'
             if (successMessage != '')
                 alertify.confirm(successMessage);
         });
     </script>
     <script>
-        $(function () {
+        $(function addcommandonbasket () {
             var successMessage = '@TempData["added"]'
             if (successMessage != '')
                 alertify.alert(successMessage);
@@ -71,4 +302,4 @@
     </a>
 
 }
-    }
+

@@ -1,50 +1,64 @@
 ﻿@model ConsumeWebServices.Models.CardDetails
+
 @{
     ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Payment.cshtml";
 }
 
-<h2>Veuillez insérer les données relatives a votre carte de paiement</h2>
+@using (Html.BeginForm())
+{
+    @section card{
+        <div>
+            <div id="tab4" class="tab-grid" style="display: block;">
+                <div class="row">
 
+                    <div class="col-md-6 number-paymk">
+                        <form class="cc-form">
+                            <div class="clearfix">
+                                <div class="form-group form-group-cc-number">
+                                    <label>Card Number</label>
+                                    @Html.ValidationMessageFor(model => model.number)
+                                    @Html.EditorFor(model => model.number, new { htmlAttributes = new { @class = "form-control", placeholder = "XXX XXX XXX XXX XX" } })
+                                    <span class="cc-card-icon"></span>
+                                </div>
+                                <div class="form-group form-group-cc-cvc">
+                                    <label>CVC</label>
+                                    @Html.ValidationMessageFor(model => model.cvc)
+                                    @Html.EditorFor(model => model.number, new { htmlAttributes = new { @class = "form-control", placeholder = "***" } })
+                                    <span class="cc-card-icon"></span>
+                                </div>
+                            </div>
+                            <div class="clearfix">
+                                <div class="form-group form-group-cc-name">
+                                    <label>EXP Month</label>
+                                    @Html.ValidationMessageFor(model => model.expMonth)
+                                    @Html.EditorFor(model => model.number, new { htmlAttributes = new { @class = "form-control", placeholder = "01" } })
+                                    <span class="cc-card-icon"></span>
+                                </div>
+                                <div class="form-group form-group-cc-date">
+                                    <label>EXP Year</label>
+                                    @Html.ValidationMessageFor(model => model.expYear)
+                                    @Html.EditorFor(model => model.number, new { htmlAttributes = new { @class = "form-control", placeholder = "2****" } })
+                                    <span class="cc-card-icon"></span>
+                                </div>
+                            </div>
+                            <div class="checkbox checkbox-small">
+                                <label>
+                                    <input class="i-check" type="checkbox" checked="">Add to My Cards
+                                </label>
+                            </div>
 
-<div class="form-body">
+                        </form>
+                        <form action="@Url.Action("Create", "Payment")">
+                            <button type="submit" class="btn-success" />Processed Payment
+                        </form>
+                    </div>
+                </div>
 
-    @using (Html.BeginForm())
-    {
-
-        <br>
-        <br>
-        <br>
-        <div class="form-group">
-            @Html.LabelFor(model => model.number)
-            @Html.EditorFor(model => model.number)
-            @Html.ValidationMessageFor(model => model.number)
+            </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.expMonth)
-            @Html.EditorFor(model => model.expMonth)
-            @Html.ValidationMessageFor(model => model.expMonth)
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.expYear)
-            @Html.EditorFor(model => model.expYear)
-            @Html.ValidationMessageFor(model => model.expYear)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.cvc)
-            @Html.EditorFor(model => model.cvc)
-            @Html.ValidationMessageFor(model => model.cvc)
-        </div>
-
-        <div class="form-group">
-            <input type="submit" value="Submit" class="btn btn-primary" />
-            <input type="reset" value="Reset" class="btn button" />
-        </div>
     }
-</div>
-
-@section scripts{
-    @Scripts.Render("~/bundles/jqueryval");
 }
+
