@@ -11,8 +11,14 @@ namespace ConsumeWebServices.Controllers
     {
 
         // GET: Product
+<<<<<<< HEAD
+        public ActionResult Index(Basket p)
+        {
+            Session["FullName"] = p.id.ToString();
+=======
         public ActionResult Index(Basket b)
         {
+>>>>>>> 034e99bb862299a454d2ccf7413371f367e6571f
 
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:8085");
@@ -85,8 +91,13 @@ namespace ConsumeWebServices.Controllers
             var productid= p.id;
             //var basketid = 16;
             //var productid = 5;
+<<<<<<< HEAD
+          //  Basket b = new Basket();
+           var basketid = Session["FullName"];
+=======
             //  Basket b = new Basket();
             var basketid = Session["basketid"]; 
+>>>>>>> 034e99bb862299a454d2ccf7413371f367e6571f
 
             HttpClient client = new HttpClient();
 
@@ -94,8 +105,18 @@ namespace ConsumeWebServices.Controllers
 
             client.PostAsync("pidev/basket/affecter/" + basketid + "/" + productid, null).ContinueWith((postTask) => postTask.Result.EnsureSuccessStatusCode());
 
+<<<<<<< HEAD
             TempData["SuccessMessage"] = "Product is Saved Successfully in your Basket";
             return RedirectToAction("ClientVue", "Client");
+=======
+<<<<<<< HEAD
+            return View("AffecterProductToBasket");
+
+
+        }
+=======
+            return RedirectToAction("GetBasketProducts", "Product");
+>>>>>>> 88d2bb1fdc094e6026d09aa7b2030c4e8ba6063f
 
 
         }
@@ -134,6 +155,7 @@ namespace ConsumeWebServices.Controllers
             }
         }
 
+<<<<<<< HEAD
         public ActionResult Delete(int id)
         {
             var basketid = Session["basketid"];
@@ -144,6 +166,9 @@ namespace ConsumeWebServices.Controllers
         }
 
 
+=======
+>>>>>>> 034e99bb862299a454d2ccf7413371f367e6571f
+>>>>>>> 88d2bb1fdc094e6026d09aa7b2030c4e8ba6063f
     }
 }
 

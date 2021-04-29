@@ -1,9 +1,13 @@
+<<<<<<< HEAD
+﻿using System.Web.Mvc;
+=======
 ﻿using ConsumeWebServices.Models;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Mvc;
+>>>>>>> 034e99bb862299a454d2ccf7413371f367e6571f
 
 namespace ConsumeWebServices.Controllers
 {
@@ -12,6 +16,14 @@ namespace ConsumeWebServices.Controllers
         // GET: Client
         public ActionResult ClientVue()
         {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            return View();
+=======
+            //Session["FullNammmme"] = b.id.ToString();
+
+>>>>>>> 88d2bb1fdc094e6026d09aa7b2030c4e8ba6063f
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:8085");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -29,6 +41,7 @@ namespace ConsumeWebServices.Controllers
                 return View(new List<Product>());
             }
           
+>>>>>>> 034e99bb862299a454d2ccf7413371f367e6571f
         }
     }
 }
