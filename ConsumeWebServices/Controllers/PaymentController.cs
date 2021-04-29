@@ -1,6 +1,8 @@
 ﻿using ConsumeWebServices.Models;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Mvc;
 
@@ -34,7 +36,7 @@ namespace ConsumeWebServices.Controllers
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:8085");
             client.PostAsJsonAsync<CardDetails>("pidev/payment/addcart/"+clientid, c).ContinueWith((postTask) => postTask.Result.EnsureSuccessStatusCode());
-            return RedirectToAction("Charge");
+            return RedirectToAction("Felicitation");
         }
 
         [System.Web.Http.HttpPost]
@@ -49,5 +51,37 @@ namespace ConsumeWebServices.Controllers
             client.PostAsJsonAsync<Charge>("pidev/payment/charger/" + clientid +"/"+basketid , c).ContinueWith((postTask) => postTask.Result.EnsureSuccessStatusCode());
             return RedirectToAction("ClientVue","Client");
         }
+
+        public ActionResult showPaymentForAdmin()
+        {
+
+
+
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:8085");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("pidev/payment/getallpayment").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var command = response.Content.ReadAsAsync<IEnumerable<Payment>>().Result;
+
+                return View(command);
+
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+
+        [System.Web.Http.HttpGet]
+        public ActionResult Felicitation()
+        {
+            TempData["SuccessMessage"] = "Deleted Successfully";
+            return View("Felicitation");
+        }
+
     }
 }

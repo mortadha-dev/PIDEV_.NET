@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace ConsumeWebServices.Models
 {
@@ -12,7 +13,11 @@ namespace ConsumeWebServices.Models
         public String address { get; set; }
         public String mail { get; set; }
         public String birthdate { get; set; }
+
+        [Required(ErrorMessage = "Login is required")]
         public String login { get; set; }
+        [Required(ErrorMessage = "Password is required")]
+
         public String password { get; set; }
 
     }

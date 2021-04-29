@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ConsumeWebServices.Models.Payment>
+
+@{
+    ViewBag.Title = "showPaymentForAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2>All the clients Payments</h2>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+
+                        <th>Client Name </th>
+                        <th>Payment Mean</th>
+                        <th>Amount (TND) </th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tbody>
+                        <tr>
+
+                            <td> @Html.DisplayFor(modelItem => item.user.firstName)</td>
+                            <td> @Html.DisplayFor(modelItem => item.paymentMean)</td>
+
+
+                            <td> @Html.DisplayFor(modelItem => item.amount)</td>
+
+
+
+
+
+
+
+
+                        </tr>
+
+                    </tbody>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+

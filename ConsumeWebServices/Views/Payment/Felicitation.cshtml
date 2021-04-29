@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Felicitation";
+    Layout = "~/Views/Shared/_Footer.cshtml";
+}
+
+<h2>Felicitation</h2>
+
+
+
+
+@section makepayment{
+    <br />
+    <br />
+    <br />
+    <br />
+    <h3 class="tittle-w3l">
+        Finalise Your Payment
+        <span class="heading-style">
+            <i></i>
+            <i></i>
+
+        </span>
+    </h3>
+    <div class="checkout-right">
+
+        <div class="checkout-right-basket">
+            <center>
+                <a href="@Url.Action("charge", "Payment")">  I Agree To Pay ( @Session["basketprice"].ToString() ) TND</a>
+
+                </a>
+        </div>
+        </center>
+
+    </div>
+
+}
+
+<script>
+        $(function AffecterProductToBasket() {
+            var successMessage = '@TempData["SuccessMessage"]'
+            if (successMessage != '')
+                alertify.confirm(successMessage);
+        });
+</script>
