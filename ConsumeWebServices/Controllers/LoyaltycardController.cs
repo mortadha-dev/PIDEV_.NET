@@ -37,20 +37,13 @@ namespace ConsumeWebServices.Controllers
         [System.Web.Http.HttpPost]
         public ActionResult randomgift()
         {
-            var productid = p.id;
-            //var basketid = 16;
-            //var productid = 5;
-            //  Basket b = new Basket();
-            var basketid = Session["basketid"];
 
             HttpClient client = new HttpClient();
 
             client.BaseAddress = new Uri("http://localhost:8085");
 
-            client.PostAsync("pidev/basket/affecter/" + basketid + "/" + productid, null).ContinueWith((postTask) => postTask.Result.EnsureSuccessStatusCode());
-
-            TempData["SuccessMessage"] = "Product is Saved Successfully in your Basket";
-            return RedirectToAction("ClientVue", "Client");
+            client.PostAsync("pidev/loyaltycard/addrandomgift/", null).ContinueWith((postTask) => postTask.Result.EnsureSuccessStatusCode());
+            return RedirectToAction("showLoyaltyCards");
 
 
         }

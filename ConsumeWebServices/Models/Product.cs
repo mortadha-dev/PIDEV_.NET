@@ -1,46 +1,18 @@
-﻿using Newtonsoft.Json;
-using NHibernate.Mapping;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
+﻿using System;
 
-namespace PIDEV.Models
+namespace ConsumeWebServices.Models
 {
     public class Product
     {
-
-		[JsonProperty("idProduct")]
-		public  long idProduct { get; set; }
-		[Required(ErrorMessage = "Code is Required")]
-		[JsonProperty("code")]
-		public long Code { get; set; }
-		[JsonProperty("nameProduct")]
-		public String NameProduct { get; set; }
-		[JsonProperty("priceProduct")]
-		public float  priceProduct { get; set; }
-		[JsonProperty("weight")]
-		public float  Weight { get; set; }
-		[JsonProperty("description")]
-		public String Description { get; set; }
+        public int id { get; set; }
+        public int Code { get; set; }
+        public String NameProduct { get; set; }
+        public Double priceProduct { get; set; }
+        public Double Weight { get; set; }
+        public String Description { get; set; }
+        public int quantity { get; set; }
+        public String Picture { get; set; }
 
 
-		public byte[] content { get; set; }
-
-
-		//	[ForeignKey("idCategory ")]
-	//	public int idCategory { get; set; }
-
-		public virtual Category idCategory { get; set; }
-
-
-		//public   Category idCategory { get; set; }
-
-		//@ManyToOne 
-
-		//   private virtual Category idCategory;
-
-	}
+    }
 }
